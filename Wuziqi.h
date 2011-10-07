@@ -1,10 +1,10 @@
 #ifndef WUZIQI_H
 #define WUZIQI_H
-/*Îå×ÓÆåÓÎÏ·µÄÓÎÏ·Ä£¿éµÄÊµÏÖ
+/*äº”å­æ£‹æ¸¸æˆçš„æ¸¸æˆæ¨¡å—çš„å®ç°
   zwdnet
-  2010Äê3ÔÂ
+  2010å¹´3æœˆ
   zwdnet@163.com
-  2011Äê9ÔÂĞŞ¸Ä£¬ÒÆÖ²µ½LinuxÏÂµÄQt»·¾³ÖĞ
+  2011å¹´9æœˆä¿®æ”¹ï¼Œç§»æ¤åˆ°Linuxä¸‹çš„Qtç¯å¢ƒä¸­
 */
 #include <iostream>
 #include <vector>
@@ -24,54 +24,54 @@ public:
 	    {x = X; y = Y;};
 };
 
-//Îå×ÓÆåÓÎÏ·Àà£¬½øĞĞÓÎÏ·Ïà¹ØµÄ²Ù×÷
+//äº”å­æ£‹æ¸¸æˆç±»ï¼Œè¿›è¡Œæ¸¸æˆç›¸å…³çš„æ“ä½œ
 class Wuziqi
 {
 private:
-    int N; //ÆåÅÌ´óĞ¡
-    vector<vector<int> > Data; //ÆåÅÌÉÏÃ¿¸ö¸ñ×ÓµÄ×´Ì¬,0ÎªÉ¶Ò²Ã»ÓĞ£¬1ÎªºÚÆå£¬2Îª°×Æå
-    POINT ps_Now; //¼ÇÂ¼°×Æå×îºóÒ»²½µÄÎ»ÖÃ,ÓÃÓÚÌØ±ğ±êÊ¾
-    int Total; //Âä×Ó×ÜÊı£¬ÓÃÓÚÅĞ¶ÏÊÇ·ñÒÑ¾­ÏÂÂú£¬ÏÂÂúÔòÎªºÍÆå
+    int N; //æ£‹ç›˜å¤§å°
+    vector<vector<int> > Data; //æ£‹ç›˜ä¸Šæ¯ä¸ªæ ¼å­çš„çŠ¶æ€,0ä¸ºå•¥ä¹Ÿæ²¡æœ‰ï¼Œ1ä¸ºé»‘æ£‹ï¼Œ2ä¸ºç™½æ£‹
+    POINT ps_Now; //è®°å½•ç™½æ£‹æœ€åä¸€æ­¥çš„ä½ç½®,ç”¨äºç‰¹åˆ«æ ‡ç¤º
+    int Total; //è½å­æ€»æ•°ï¼Œç”¨äºåˆ¤æ–­æ˜¯å¦å·²ç»ä¸‹æ»¡ï¼Œä¸‹æ»¡åˆ™ä¸ºå’Œæ£‹
 
-public: //¹©Íâ½çµ÷ÓÃµÄ½Ó¿Ú
-    Wuziqi(const int n = 15); //¹¹Ôìº¯Êı£¬Ä¬ÈÏ´óĞ¡Îª20
+public: //ä¾›å¤–ç•Œè°ƒç”¨çš„æ¥å£
+    Wuziqi(const int n = 15); //æ„é€ å‡½æ•°ï¼Œé»˜è®¤å¤§å°ä¸º20
     ~Wuziqi(void);
-    void Init(void); //Êı¾İ³õÊ¼»¯
-    void GetData(vector<vector<int> > & data); //»ñÈ¡ÓÎÏ·Êı¾İ£¬ÓÃÓÚ»­Í¼
-    void Judge(int & Who); //ÅĞ¶Ïµ±Ç°¾ÖÃæÊÇ·ñ³öÏÖÊäÓ®£¬Who = 1ºÚ·½(ÈË)Ê¤£¬Who = 2°×·½
-                            //Ê¤£¬Who = 0ÔòÃ»ÓĞ½áÊø
+    void Init(void); //æ•°æ®åˆå§‹åŒ–
+    void GetData(vector<vector<int> > & data); //è·å–æ¸¸æˆæ•°æ®ï¼Œç”¨äºç”»å›¾
+    void Judge(int & Who); //åˆ¤æ–­å½“å‰å±€é¢æ˜¯å¦å‡ºç°è¾“èµ¢ï¼ŒWho = 1é»‘æ–¹(äºº)èƒœï¼ŒWho = 2ç™½æ–¹
+                            //èƒœï¼ŒWho = 0åˆ™æ²¡æœ‰ç»“æŸ
     bool Fall(const POINT & ps, const int & who,
 	     const int & beginPos, const int & endPos); 
-          //ÈËÂä×Ó,ÈôÊó±êµã»÷ÇøÓòÎŞĞ§·µ»Øfalse;
+          //äººè½å­,è‹¥é¼ æ ‡ç‚¹å‡»åŒºåŸŸæ— æ•ˆè¿”å›false;
     bool UnFall(const POINT & ps, const int & who,
 	     const int & beginPos, const int & endPos);
-         //È¡ÏûÂä×Ó£¬ÓÃÓÚËã·¨4
-    void Clear(void); //Çå¿ÕÓÎÏ·Êı¾İ
-    void Run(POINT & ps, const int & Which, const int & Who); //¼ÆËã»ú×ßÆå
+         //å–æ¶ˆè½å­ï¼Œç”¨äºç®—æ³•4
+    void Clear(void); //æ¸…ç©ºæ¸¸æˆæ•°æ®
+    void Run(POINT & ps, const int & Which, const int & Who); //è®¡ç®—æœºèµ°æ£‹
 		 
-private://¹¤¾ßº¯Êı
+private://å·¥å…·å‡½æ•°
     bool ChangePos(const POINT & srcPos, POINT & desPos,
-	     const int & beginPos, const int & endPos);  //½«×ù±ê½øĞĞ×ª»»
+	     const int & beginPos, const int & endPos);  //å°†åº§æ ‡è¿›è¡Œè½¬æ¢
 
-private://ºËĞÄËã·¨Ä£¿é
-    //Ëã·¨1
-    void Way1(POINT & ps); //·½·¨1£¬·Ö¿ªĞ´£¬Ôö¼ÓĞÂµÄËã·¨Ê±¾Í²»±Ø¸Ä¶¯ÀàÖ®ÍâµÄµ÷ÓÃµÄ³ÌĞò
-    //Ëã·¨2
+private://æ ¸å¿ƒç®—æ³•æ¨¡å—
+    //ç®—æ³•1
+    void Way1(POINT & ps); //æ–¹æ³•1ï¼Œåˆ†å¼€å†™ï¼Œå¢åŠ æ–°çš„ç®—æ³•æ—¶å°±ä¸å¿…æ”¹åŠ¨ç±»ä¹‹å¤–çš„è°ƒç”¨çš„ç¨‹åº
+    //ç®—æ³•2
     void Way2(POINT & ps);
     void SetScore(const int i, const int j, const int Who,
-                  vector<vector<int> > & State); //ÆÀ·Öº¯Êı
-    int p_Score(int num, int bp[]); //Êµ¼ÊµÄÆÀ·Öº¯Êı
-    bool first; //ÊÇ·ñÊÇµÚÒ»²½
-    //Ëã·¨3£ºËæ»úËã·¨
+                  vector<vector<int> > & State); //è¯„åˆ†å‡½æ•°
+    int p_Score(int num, int bp[]); //å®é™…çš„è¯„åˆ†å‡½æ•°
+    bool first; //æ˜¯å¦æ˜¯ç¬¬ä¸€æ­¥
+    //ç®—æ³•3ï¼šéšæœºç®—æ³•
     void Way3(POINT & ps);
     /*
-    //Ëã·¨4: ²©ŞÄÊ÷Ëã·¨
+    //ç®—æ³•4: åšå¼ˆæ ‘ç®—æ³•
     void Way4(POINT & ps);
-    int maxDepth;  //×î´óËÑË÷Éî¶È£¬Ä¬ÈÏÎª1
+    int maxDepth;  //æœ€å¤§æœç´¢æ·±åº¦ï¼Œé»˜è®¤ä¸º1
     int depth;
-    void setDepth(const int & dep); //ÉèÖÃ×î´óËÑË÷Éî¶È
-    void Search(const int & i, const int & j);  //ËÑË÷º¯Êı
-    //vector<vector<int> > & bestStep; //¼ÇÂ¼Õû¸öËÑË÷½á¹û
+    void setDepth(const int & dep); //è®¾ç½®æœ€å¤§æœç´¢æ·±åº¦
+    void Search(const int & i, const int & j);  //æœç´¢å‡½æ•°
+    //vector<vector<int> > & bestStep; //è®°å½•æ•´ä¸ªæœç´¢ç»“æœ
     */
 };
 #endif
