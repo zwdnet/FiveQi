@@ -7,7 +7,7 @@ Window::Window(QWidget * parent)
 	setWindowTitle(tr("五子棋游戏"));
 	N = 15;  //棋盘规模 NXN
 	MenuBarSize = 10;//菜单栏所占的位置
-	setFixedSize(420+MenuBarSize, 420+MenuBarSize);
+	setFixedSize(320+MenuBarSize, 320+MenuBarSize);
 	bRun = true;
 	Method = 2;
 	vector<int> temp(N, 0);
@@ -81,11 +81,11 @@ void Window::mousePressEvent(QMouseEvent * event)
 		ps.x = x;
 		ps.y = y;
 		if (ps.x < 10+MenuBarSize || ps.y < 10+MenuBarSize ||
-		    ps.x > 400+20+MenuBarSize || ps.y > 400+20+MenuBarSize)
+		    ps.x > 300+20+MenuBarSize || ps.y > 300+20+MenuBarSize)
 		{
 			return;
 		}
-		if (!game.Fall(ps, 1, 20+MenuBarSize, 400+20+MenuBarSize))
+		if (!game.Fall(ps, 1, 20+MenuBarSize, 300+20+MenuBarSize))
 		{
 			return;
 		}
@@ -93,7 +93,7 @@ void Window::mousePressEvent(QMouseEvent * event)
 		lastPs = ps;
 		ps.x = 20 + MenuBarSize + ps.x*20;
 		ps.y = 20 + MenuBarSize + ps.y*20;
-		game.Fall(ps, 2, 20+MenuBarSize, 400+20+MenuBarSize);
+		game.Fall(ps, 2, 20+MenuBarSize, 300+20+MenuBarSize);
 		game.GetData(gamedata);
 		update();
 		int who = 0; //看谁赢了
@@ -244,14 +244,14 @@ void Window::fightAgainst(void)
 				testGame->Run(ps, bAlgorithm, 1);
 				ps.x = ps.x*20 + 20+MenuBarSize;
 				ps.y = ps.y*20 + 20+MenuBarSize;
-				testGame->Fall(ps, 1, 20+MenuBarSize, 400+20+MenuBarSize);
+				testGame->Fall(ps, 1, 20+MenuBarSize, 300+20+MenuBarSize);
 				testGame->GetData(gamedata);
 				testGame->Judge(Who);
 				//白棋走
 				testGame->Run(ps, wAlgorithm, 2);
 				ps.x = ps.x*20 + 20+MenuBarSize;
 				ps.y = ps.y*20 + 20+MenuBarSize;
-				testGame->Fall(ps, 2, 20+MenuBarSize, 400+20+MenuBarSize);
+				testGame->Fall(ps, 2, 20+MenuBarSize, 300+20+MenuBarSize);
 				testGame->GetData(gamedata);
 				testGame->Judge(Who);
 			}
@@ -261,14 +261,14 @@ void Window::fightAgainst(void)
 				testGame->Run(ps, wAlgorithm, 2);
 				ps.x = ps.x*20 + 20+MenuBarSize;
 				ps.y = ps.y*20 + 20+MenuBarSize;
-				testGame->Fall(ps, 2, 20+MenuBarSize, 400+20+MenuBarSize);
+				testGame->Fall(ps, 2, 20+MenuBarSize, 300+20+MenuBarSize);
 				testGame->GetData(gamedata);
 				testGame->Judge(Who);
 				//黑棋走
 				testGame->Run(ps, bAlgorithm, 1);
 				ps.x = ps.x*20 + 20+MenuBarSize;
 				ps.y = ps.y*20 + 20+MenuBarSize;
-				testGame->Fall(ps, 1, 20+MenuBarSize, 400+20+MenuBarSize);
+				testGame->Fall(ps, 1, 20+MenuBarSize, 300+20+MenuBarSize);
 				testGame->GetData(gamedata);
 				testGame->Judge(Who);
 			}
